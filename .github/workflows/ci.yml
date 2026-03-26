@@ -13,13 +13,17 @@ env:
     SERVER_IP: 'xxx-x-x-x'
     COMPANY_NAME: 'IOIP'
     REPO_NAME: ${{github.repository}}
+    EVENT_NAME: ${{github.event_name}}
 
 
 jobs:
-  job-1:
+  lint-job:
     runs-on: ubuntu-latest
-    env:
-        PHONE: '0987654321'
     steps: 
-        - run: echo "Hello World :)"
+        - uses: actions/checkout@v5
+        - uses: actions/setup-node@v6
+          with:
+            node-version: '24.x'
+            cache: 'npm'
+        - run: node -v
 
