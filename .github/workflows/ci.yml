@@ -1,0 +1,25 @@
+name: Frontend_Workshop_Demo
+
+on:
+  push:
+    branches:
+        - 'feature/**'
+        - 'bugfix/**'
+        - 'chore/**'
+        - 'hotfix/**'
+        - main
+        - master
+env:
+    SERVER_IP: 'xxx-x-x-x'
+    COMPANY_NAME: 'IOIP'
+    REPO_NAME: ${{github.repository}}
+
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    env:
+        PHONE: '0987654321'
+    steps: 
+        - run: echo "Hello World :)"
+
